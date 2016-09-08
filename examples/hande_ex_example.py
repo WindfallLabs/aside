@@ -7,10 +7,9 @@ Author: Garin Wally; Aug 2016
 
 from time import sleep
 
-from tkit.cli import StatusLine, wait, handle_ex
+from aside import status, wait, handle_ex
 
 
-status = StatusLine()
 print(__doc__)
 
 status.write("Run important task...")

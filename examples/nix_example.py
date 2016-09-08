@@ -6,7 +6,7 @@ Author: Garin Wally; Aug 2016
 
 from time import sleep
 
-from aside import nix, nix_decorator, wait
+from aside import nix, nix_process, wait
 
 
 print(__doc__)
@@ -22,7 +22,7 @@ nix.info("I don't have much to say right now")
 
 nix.warn("It's sucking my will to live!")
 
-@nix_decorator
+@nix_process
 def get_date():
     """Function that will get me a hot date.
     Msg:
