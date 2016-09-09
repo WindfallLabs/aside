@@ -48,6 +48,13 @@ if sys.argv[-1] == "clean":
             pass
         sys.exit(0)
 
+# Install to Arc Python
+if sys.argv[-1] == "arc-install":
+    p = glob.glob("C:/Python[0-9]*/ArcGIS[0-9]*/Lib/site-packages")[0]
+    p = p.replace("\\", "/")
+    shutil.copy2("aside.py", p)
+    sys.exit(0)
+
 
 setup(
     name='aside',

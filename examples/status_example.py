@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""status_example.py: double-click executable that displays the StatusLine
-object.
+"""status_example.py: double-click executable that displays the status object.
 Author: Garin Wally; Aug 2016
 
 """
