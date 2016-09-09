@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-shmsg.py - Shell Messages
-Garin Wally; March 2015, April 2016
+aside.py -- Glorified Print-statements for process messaging.
+Author: Garin Wally; 2016
 
-This module provides users with a toolkit of functions for making cli-based
-script tools look better.
+
 """
 
 from __future__ import print_function
@@ -12,7 +11,6 @@ from __future__ import print_function
 import re
 import sys
 import traceback
-from functools import partial
 
 import colorama
 from termcolor import cprint, COLORS, colored
@@ -22,7 +20,13 @@ if sys.version.startswith("3"):
     raw_input = input
 
 
-__all__ = ["show_colors", "wait", "handle_ex", "nix", "status"]
+__all__ = ["show_colors",
+           "wait",
+           "handle_ex",
+           "nix",
+           "nix_process",
+           "status",
+           "status_process"]
 
 colorama.init()
 
@@ -239,7 +243,7 @@ def status_process(func):
 
     """
     status = Status()
-    @partial
+
     def wrapper(*args, **kwargs):
         try:
             if func.__doc__ and re.findall("(?i)msg:", func.__doc__):
@@ -262,24 +266,9 @@ def status_process(func):
 
 
 def nix_process(func):
-    """Wraps a process/function with naked try/except and 'Nix' messages.
-    Args:
-        func (function): function to be wrapped
-    Returns a process/function decorated with Nix-style messages.
-    Use:
-        >>> @nix_decorator
-        >>> def my_process():
-        >>>     '''My doc.
-        >>>     Msg:
-        >>>         Doing stuff...'''
-        >>>     import time
-        >>>     time.sleep(2)
-        >>>     return "Some Value"
-        [[1m[32m  OK  [0m]  Doing stuff...
-
-    """
+    """Wraps a function with naked try/except and cli.StatusLine messages."""
     nix = Nix()
-    @partial
+
     def wrapper(*args, **kwargs):
         try:
             if func.__doc__ and re.findall("(?i)msg:", func.__doc__):
