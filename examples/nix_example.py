@@ -15,7 +15,7 @@ nix.write("Party on Garth")
 sleep(2)
 nix.ok()
 
-nix.write("It's like a new pair of underware")
+nix.write("It's like a new pair of underwear")
 nix.ok()
 
 nix.info("I don't have much to say right now")
