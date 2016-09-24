@@ -11,15 +11,15 @@ from aside import status, status_process, wait
 
 print(__doc__)
 
-status.write("Imporing Wayne Campbell...")
+status.write("Party on magenta 'excellent'...")
 sleep(2)
-status.custom("Excellent", "magenta")
+status.custom("Excellent!", "magenta")
 
-status.write("Cha!")
+status.write("Cha! Standard success...")
 status.success()
 
 
-status.custom("Sha-WING", "cyan")
+status.custom("custom Sha-WING status", "cyan")
 
 @status_process
 def stairway():

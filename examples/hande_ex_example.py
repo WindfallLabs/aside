@@ -16,10 +16,10 @@ status.write("Run important task...")
 sleep(2)
 status.success()
 
-status.write("Shotgun a beer...")
-status.failure()
-
 try:
-    raise IOError("You spilled!")
-except IOError:
+    status.write("Divide 1 by 'str'...")
+    1 / 'str'
+    status.success()
+except:
+    status.failure()
     handle_ex()
